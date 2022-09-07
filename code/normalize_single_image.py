@@ -1,5 +1,5 @@
 import sys, os
-os.chdir("/Users/dlforrister/Documents_Mac/CODE_GIT_HUB_2017_Aug_31/YFDP_Photogrametry_Workflow_V2_2021_12_23/code/")
+os.chdir("/home1/08531/dlforr/github_dir/YFDP_Photogrametry_Workflow_V2_2021_12_23/code/")
 import histogram_specification_v4_HSV_simple as HistSpecHSV
 import argparse
 
@@ -37,13 +37,13 @@ if __name__ == '__main__':
     arguments = parser.parse_args()
  
     #create output folder
-    destOutput = "/Volumes/Seagate_14_TB/Google_Drive_Back_up/2018_Yasuni_Drone_Mapping/" + arguments.sourceFolder + arguments.output
-    refimage = "/Volumes/Seagate_14_TB/Google_Drive_Back_up/2018_Yasuni_Drone_Mapping/" + arguments.destImage
+    destOutput =  arguments.sourceFolder + arguments.output
+    refimage =  arguments.destImage
     if not os.path.exists(destOutput):
         print("creating output folder at {}".format(destOutput))
         os.mkdir(destOutput)
     #make complete path of image
-    srcImg = "/Volumes/Seagate_14_TB/Google_Drive_Back_up/2018_Yasuni_Drone_Mapping/" + arguments.sourceFolder + "/" + arguments.image
+    srcImg = arguments.sourceFolder + "/" + arguments.image
     if ".JPG" in os.path.basename(srcImg):
         outName = destOutput + os.path.basename(srcImg).split('.JPG')[0] + '_HSV_V_fixed.JPG'
 
